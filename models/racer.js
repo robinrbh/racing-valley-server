@@ -4,7 +4,7 @@ const { Model, BOOLEAN } = require("sequelize")
 module.exports = (sequelize, DataTypes) => {
 	class racer extends Model {
 		static associate(models) {
-			racer.hasMany(models.bookings)
+			racer.hasMany(models.booking)
 		}
 	}
 	racer.init(

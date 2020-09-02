@@ -4,8 +4,8 @@ const { Model, BOOLEAN } = require("sequelize")
 module.exports = (sequelize, DataTypes) => {
 	class vendor extends Model {
 		static associate(models) {
-			vendor.hasMany(models.cars)
-			vendor.hasMany(models.ratings)
+			vendor.hasMany(models.car)
+			vendor.hasMany(models.rating)
 		}
 	}
 	vendor.init(
@@ -22,10 +22,10 @@ module.exports = (sequelize, DataTypes) => {
 			password: {
 				type: DataTypes.STRING,
 				allowNull: false,
-      },
-      imageUrl: {
-        type: DataTypes.STRING,
-      }
+			},
+			imageUrl: {
+				type: DataTypes.STRING,
+			},
 		},
 		{
 			sequelize,

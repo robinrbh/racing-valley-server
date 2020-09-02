@@ -8,7 +8,6 @@ module.exports = {
 			"vendors",
 			[
 				{
-					id: 1,
 					businessName: "Porsche4Track",
 					email: "p@p.com",
 					password: bcrypt.hashSync("p", SALT_ROUNDS),
@@ -18,7 +17,6 @@ module.exports = {
 					updatedAt: new Date(),
 				},
 				{
-					id: 2,
 					businessName: "TrackBMWs",
 					email: "b@b.com",
 					password: bcrypt.hashSync("b", SALT_ROUNDS),

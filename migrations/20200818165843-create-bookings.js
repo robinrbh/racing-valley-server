@@ -9,8 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       orderDate: {
-        type: Sequelize.DATE,
-        allowNull: false,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

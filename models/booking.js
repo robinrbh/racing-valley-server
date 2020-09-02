@@ -3,13 +3,13 @@ const { Model } = require("sequelize")
 module.exports = (sequelize, DataTypes) => {
 	class booking extends Model {
 		static associate(models) {
-      booking.belongsTo(models.track), 
-      booking.hasMany(models.bid)
+			booking.belongsTo(models.track), booking.belongsTo(models.car)
+			booking.belongsTo(models.racer)
 		}
 	}
 	booking.init(
 		{
-			orderDate: { type: DataTypes.DATE },
+			orderDate: { type: DataTypes.STRING },
 		},
 		{
 			sequelize,

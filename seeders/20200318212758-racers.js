@@ -1,9 +1,19 @@
 "use strict"
 const bcrypt = require("bcrypt")
 const { SALT_ROUNDS } = require("../config/constants")
+const Booking = require("../models").booking
 
 module.exports = {
 	up: async (queryInterface, Sequelize) => {
+		
+		const booking1 = await Booking.findOne({
+			where: { orderDate: "01/09/2020" },
+		})
+
+		const booking2 = await Booking.findOne({
+			where: { orderDate: "02/09/2020" },
+		})
+
 		await queryInterface.bulkInsert(
 			"racers",
 			[

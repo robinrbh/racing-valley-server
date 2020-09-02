@@ -1,58 +1,44 @@
 "use strict"
-const Bid = require("../models").bid
-const Artwork = require("../models").artwork
 
 module.exports = {
 	up: async (queryInterface, Sequelize) => {
-		const artwork1 = await Artwork.findOne({
-			where: { title: "Digital art" },
-		})
-
-		const artwork2 = await Artwork.findOne({
-			where: { title: "Traditional art" },
-		})
-
-		const artwork3 = await Artwork.findOne({
-			where: { title: "Grafiti art" },
-		})
-
 		await queryInterface.bulkInsert(
-			"bids",
+			"tracks",
 			[
 				{
-					email: "rhartog@gmail.com",
-					amount: 300,
+					name: "Nürburgring Nordschleife",
+					city: "Nürburg",
+					country: "DE",
 					createdAt: new Date(),
 					updatedAt: new Date(),
-					artworkId: artwork1.id,
 				},
 				{
-					email: "rhartog@gmail.com",
-					amount: 400,
+					name: "Circuit Park Zandvoort",
+					city: "Zandvoort",
+					country: "NL",
 					createdAt: new Date(),
 					updatedAt: new Date(),
-					artworkId: artwork2.id,
 				},
 				{
-					email: "rhartog@gmail.com",
-					amount: 500,
+					name: "Autodromo Nazionale Monza",
+					city: "Monza",
+					country: "IT",
 					createdAt: new Date(),
 					updatedAt: new Date(),
-					artworkId: artwork3.id,
 				},
 				{
-					email: "rbhartog@live.nl",
-					amount: 350,
+					name: "Spa-Franchorchamps",
+					city: "Spa",
+					country: "BE",
 					createdAt: new Date(),
 					updatedAt: new Date(),
-					artworkId: artwork1.id,
 				},
 				{
-					email: "rbhartog@live.nl",
-					amount: 450,
+					name: "Ascari Race Resort",
+					city: "Ronda",
+					country: "ES",
 					createdAt: new Date(),
 					updatedAt: new Date(),
-					artworkId: artwork2.id,
 				},
 			],
 			{}
@@ -60,6 +46,6 @@ module.exports = {
 	},
 
 	down: async (queryInterface, Sequelize) => {
-		return queryInterface.bulkDelete("bids", null, {});
+		return queryInterface.bulkDelete("tracks", null, {})
 	},
 }

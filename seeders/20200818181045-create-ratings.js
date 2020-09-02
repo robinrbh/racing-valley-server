@@ -1,58 +1,32 @@
 "use strict"
-const Bid = require("../models").bid
-const Artwork = require("../models").artwork
+const Vendor = require("../models").vendor
 
 module.exports = {
 	up: async (queryInterface, Sequelize) => {
-		const artwork1 = await Artwork.findOne({
-			where: { title: "Digital art" },
+		const vendor1 = await Vendor.findOne({
+			where: { businessName: "Porsche4Track" },
 		})
 
-		const artwork2 = await Artwork.findOne({
-			where: { title: "Traditional art" },
-		})
-
-		const artwork3 = await Artwork.findOne({
-			where: { title: "Grafiti art" },
+		const vendor2 = await Vendor.findOne({
+			where: { businessName: "TrackBMWs" },
 		})
 
 		await queryInterface.bulkInsert(
-			"bids",
+			"ratings",
 			[
 				{
-					email: "rhartog@gmail.com",
-					amount: 300,
+					comment: "Great company, those Porsches are fast!!",
+					rating: 5,
 					createdAt: new Date(),
 					updatedAt: new Date(),
-					artworkId: artwork1.id,
+					vendorId: vendor1.id,
 				},
 				{
-					email: "rhartog@gmail.com",
-					amount: 400,
+					comment: "Really good company, those BMW's are really fun to drive.",
+					rating: 4,
 					createdAt: new Date(),
 					updatedAt: new Date(),
-					artworkId: artwork2.id,
-				},
-				{
-					email: "rhartog@gmail.com",
-					amount: 500,
-					createdAt: new Date(),
-					updatedAt: new Date(),
-					artworkId: artwork3.id,
-				},
-				{
-					email: "rbhartog@live.nl",
-					amount: 350,
-					createdAt: new Date(),
-					updatedAt: new Date(),
-					artworkId: artwork1.id,
-				},
-				{
-					email: "rbhartog@live.nl",
-					amount: 450,
-					createdAt: new Date(),
-					updatedAt: new Date(),
-					artworkId: artwork2.id,
+					vendorId: vendor2.id,
 				},
 			],
 			{}
@@ -60,6 +34,6 @@ module.exports = {
 	},
 
 	down: async (queryInterface, Sequelize) => {
-		return queryInterface.bulkDelete("bids", null, {});
+		return queryInterface.bulkDelete("ratings", null, {})
 	},
 }
