@@ -6,6 +6,7 @@ const Car = require("../models/").car
 const Vendor = require("../models").vendor
 const Racer = require("../models").racer
 const Booking = require("../models").booking
+const Location = require("../models").track
 const Ratings = require("../models").rating
 
 const { SALT_ROUNDS } = require("../config/constants")
@@ -23,7 +24,10 @@ router.get("/:id", async (req, res) => {
 	const { id } = req.params
 	try {
 		const vendorById = await Vendor.findByPk(parseInt(id), {
-			include: [Car, Ratings],
+			include: [
+				{ model: Car, include: [{ model: Location }] },
+				{ model: Ratings },
+			],
 		})
 		if (!vendorById) {
 			return res.status(400).send("Vendor does not exist")
