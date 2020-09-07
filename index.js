@@ -4,6 +4,9 @@ const corsMiddleWare = require("cors");
 const { PORT } = require("./config/constants");
 const authRouter = require("./routers/auth");
 const authMiddleWare = require("./auth/middleware");
+const carsRouter = require("./routers/cars")
+const vendorRouter = require("./routers/vendors")
+const racerRouter = require("./routers/racers")
 
 const app = express();
 
@@ -151,7 +154,9 @@ app.post("/authorized_post_request", authMiddleWare, (req, res) => {
 });
 
 app.use("/", authRouter);
-// app.use("/artworks", artworkRouter)
+app.use("/cars", carsRouter)
+app.use("/vendors", vendorRouter)
+app.use("/racers", racerRouter)
 
 // Listen for connections on specified port (default is port 4000)
 

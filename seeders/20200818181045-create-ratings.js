@@ -4,11 +4,11 @@ const Vendor = require("../models").vendor
 module.exports = {
 	up: async (queryInterface, Sequelize) => {
 		const vendor1 = await Vendor.findOne({
-			where: { businessName: "Porsche4Track" },
+			where: { name: "Porsche4Track" },
 		})
 
 		const vendor2 = await Vendor.findOne({
-			where: { businessName: "TrackBMWs" },
+			where: { name: "TrackBMWs" },
 		})
 
 		await queryInterface.bulkInsert(
