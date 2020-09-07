@@ -1,49 +1,60 @@
-const Vendor = require('../models').vendor;
+const Vendor = require("../models").vendor
+const Car = require("../models").car
+const Booking = require("../models").booking
+const Racer = require("../models").racer
+const Location = require("../models").track
 
-const { toData } = require('./jwt');
+const { toData } = require("./jwt")
 
 async function auth(req, res, next) {
-  const auth =
-    req.headers.authorization && req.headers.authorization.split(' ');
+	const auth = req.headers.authorization && req.headers.authorization.split(" ")
 
-  if (!auth || !auth[0] === 'Bearer' || !auth[1]) {
-    res.status(401).send({
-      message:
-        'This endpoint requires an Authorization header with a valid token',
-    });
-  }
+	if (!auth || !auth[0] === "Bearer" || !auth[1]) {
+		res.status(401).send({
+			message:
+				"This endpoint requires an Authorization header with a valid token",
+		})
+	}
 
-  try {
-    const data = toData(auth[1]);
-    const vendor = await Vendor.findByPk(data.vendorId);
+	try {
+		const data = toData(auth[1])
+		const vendor = await Vendor.findByPk(data.vendorId, {
+			include: {
+				model: Car,
+				include: {
+					model: Booking,
+					include: [{ model: Racer }, { model: Car }, { model: Location }],
+				},
+			},
+		})
 
-    if (!vendor) {
-      return res.status(404).send({ message: 'Vendor does not exist' });
-    }
+		if (!vendor) {
+			return res.status(404).send({ message: "Vendor does not exist" })
+		}
 
-    req.vendor = vendor;
+		req.vendor = vendor
 
-    return next();
-  } catch (error) {
-    console.log('ERROR IN AUTH MIDDLEWARE', error);
+		return next()
+	} catch (error) {
+		console.log("ERROR IN AUTH MIDDLEWARE", error)
 
-    switch (error.name) {
-      case 'TokenExpiredError':
-        return res
-          .status(401)
-          .send({ error: error.name, message: error.message });
+		switch (error.name) {
+			case "TokenExpiredError":
+				return res
+					.status(401)
+					.send({ error: error.name, message: error.message })
 
-      case 'JsonWebTokenError':
-        return res
-          .status(400)
-          .send({ error: error.name, message: error.message });
+			case "JsonWebTokenError":
+				return res
+					.status(400)
+					.send({ error: error.name, message: error.message })
 
-      default:
-        return res.status(400).send({
-          message: 'Something went wrong, sorry',
-        });
-    }
-  }
+			default:
+				return res.status(400).send({
+					message: "Something went wrong, sorry",
+				})
+		}
+	}
 }
 
-module.exports = auth;
+module.exports = auth

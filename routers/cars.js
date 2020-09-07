@@ -3,7 +3,9 @@ const { Router } = require("express")
 const { toJWT } = require("../auth/jwt")
 const authMiddleware = require("../auth/middleware")
 const Car = require("../models/").car
+const Racer = require("../models").racer
 const Vendor = require("../models").vendor
+const Booking = require("../models").booking
 
 const { SALT_ROUNDS } = require("../config/constants")
 const auth = require("../auth/middleware")
@@ -11,9 +13,21 @@ const auth = require("../auth/middleware")
 const router = new Router()
 
 router.get("/", async (req, res) => {
-	const cars = await Car.findAll()
-
+	const cars = await Car.findAll({
+		include: [
+			{
+				include: { model: Vendor },
+				model: Booking,
+				include: { model: Racer },
+			},
+		],
+	})
 	res.send(cars)
+})
+
+router.get("/bookings", async (req, res) => {
+	const bookings = await Booking.findAll()
+	res.send(bookings)
 })
 
 router.get("/:id", async (req, res) => {

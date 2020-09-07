@@ -4,6 +4,8 @@ const { toJWT } = require("../auth/jwt")
 const authMiddleware = require("../auth/middleware")
 const Car = require("../models/").car
 const Vendor = require("../models").vendor
+const Racer = require("../models").racer
+const Booking = require("../models").booking
 const Ratings = require("../models").rating
 
 const { SALT_ROUNDS } = require("../config/constants")

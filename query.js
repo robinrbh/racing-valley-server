@@ -93,7 +93,7 @@ const findRacerDetailsBookings = async () => {
 // findDetailsVendor()
 
 // !! Find details of one Vendor including Cars and Bookings
-// findDetailsVendorBookings()
+findDetailsVendorBookings()
 
 // !! Find details of one Racer including his bookings
-findRacerDetailsBookings()
+// findRacerDetailsBookings()
