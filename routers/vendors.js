@@ -61,4 +61,28 @@ router.patch("/:id/", async (req, res) => {
 	}
 })
 
+router.post("/:id/", async (req, res) => {
+	const vendor = await Vendor.findByPk(req.params.id)
+
+	// const comment = await Rating.findAll({
+	// 	where: { vendorId: req.params.id },
+	// })
+
+	const { comment, rating } = req.body
+
+	console.log("req.body", req.body)
+
+	try {
+		const review = await Ratings.create({
+			comment,
+			rating,
+			vendorId: vendor.id,
+		})
+
+		return res.status(201).send({ message: "Review posted!", review })
+	} catch (e) {
+		console.log(e)
+	}
+})
+
 module.exports = router

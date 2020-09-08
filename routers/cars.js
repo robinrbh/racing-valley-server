@@ -47,6 +47,8 @@ router.post("/:id/book", racerAuthMiddleware, async (req, res) => {
 	const car = await Car.findByPk(parseInt(id))
 	const { trackId, racerId } = req.body
 
+	console.log("car", car)
+
 	try {
 		const booking = await Booking.create({
 			carId: car.id,
