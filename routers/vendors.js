@@ -44,10 +44,7 @@ router.get("/:id", async (req, res) => {
 
 router.patch("/:id/", async (req, res) => {
 	const { id } = req.params
-	console.log("req.params", req.params)
-
 	const { newLogo } = req.body
-	console.log("req.body", req.body)
 	const vendor = await Vendor.findByPk(parseInt(id))
 
 	try {
@@ -63,14 +60,7 @@ router.patch("/:id/", async (req, res) => {
 
 router.post("/:id/", async (req, res) => {
 	const vendor = await Vendor.findByPk(req.params.id)
-
-	// const comment = await Rating.findAll({
-	// 	where: { vendorId: req.params.id },
-	// })
-
 	const { comment, rating } = req.body
-
-	console.log("req.body", req.body)
 
 	try {
 		const review = await Ratings.create({
