@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
 	}
 	booking.init(
 		{
-			orderDate: { type: DataTypes.STRING },
+			orderDate: { type: DataTypes.DATE },
 		},
 		{
 			sequelize,

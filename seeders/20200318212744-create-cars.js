@@ -26,6 +26,7 @@ module.exports = {
 					createdAt: new Date(),
 					updatedAt: new Date(),
 					vendorId: vendor1.id,
+					isAvailable: true,
 				},
 				{
 					brand: "Porsche",
@@ -39,6 +40,7 @@ module.exports = {
 					createdAt: new Date(),
 					updatedAt: new Date(),
 					vendorId: vendor1.id,
+					isAvailable: true,
 				},
 				{
 					brand: "Porsche",
@@ -52,6 +54,7 @@ module.exports = {
 					createdAt: new Date(),
 					updatedAt: new Date(),
 					vendorId: vendor1.id,
+					isAvailable: true,
 				},
 				{
 					brand: "BMW",
@@ -65,6 +68,7 @@ module.exports = {
 					createdAt: new Date(),
 					updatedAt: new Date(),
 					vendorId: vendor2.id,
+					isAvailable: true,
 				},
 				{
 					brand: "BMW",
@@ -78,6 +82,7 @@ module.exports = {
 					createdAt: new Date(),
 					updatedAt: new Date(),
 					vendorId: vendor2.id,
+					isAvailable: true,
 				},
 			],
 			{}

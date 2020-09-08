@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt")
 const { Router } = require("express")
 const { toJWT } = require("../auth/jwt")
-const authMiddleware = require("../auth/middleware")
+const vendorAuthMiddleware = require("../auth/vendorAuthMiddleware")
 const Car = require("../models/").car
 const Vendor = require("../models").vendor
 const Racer = require("../models").racer
@@ -39,6 +39,25 @@ router.get("/:id", async (req, res) => {
 		res.send(vendorById)
 	} catch (err) {
 		console.log(err)
+	}
+})
+
+router.patch("/:id/", async (req, res) => {
+	const { id } = req.params
+	console.log("req.params", req.params)
+
+	const { newLogo } = req.body
+	console.log("req.body", req.body)
+	const vendor = await Vendor.findByPk(parseInt(id))
+
+	try {
+		const updatedLogo = await vendor.update({
+			...vendor,
+			imageUrl: newLogo,
+		})
+		return res.status(201).send({ message: "Logo updated", updatedLogo })
+	} catch (e) {
+		console.log(e)
 	}
 })
 
