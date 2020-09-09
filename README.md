@@ -68,7 +68,7 @@ Go to [project board](https://github.com/robinrbh/racing-valley/projects/1)
 | ------ | --------- | --------------------------------- | ------------------- | ---- |
 | GET    | '/'       | Test if your server is running    | none                | no   |
 | POST   | '/echo'   | Test POST requests                | none                | no   |
-| POST   | '/signup' | Create a new user and get a token | email,              | no   |
+| POST   | '/signup' | Create a new user and get a token |                     | no   |
 
 ## Technologies Used
 
