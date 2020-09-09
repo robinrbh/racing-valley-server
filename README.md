@@ -64,41 +64,11 @@ Go to [project board](https://github.com/robinrbh/racing-valley/projects/1)
 
 ## Endpoints
 
-| Method | Path                        | Purpose                             | required parameters    | auth |
-| ------ | --------------------------- | ----------------------------------- | ---------------------- | ---- |
-| GET    | '/'                         | Test if your server is running      | none                   | no   |
-| POST   | '/echo'                     | Test POST requests                  | none                   | no   |
-| POST   | '/signup'                   | Create a new user and get a token   | email,                 | no   |
-|        |                             |                                     | password,              |      |
-|        |                             |                                     | firstName              |      |
-|        |                             |                                     | lastName,              |      |
-|        |                             |                                     | address,               |      |
-|        |                             |                                     | phoneNum,              |      |
-|        |                             |                                     | isOwner                |      |
-| POST   | '/login'                    | Get a token with email & password   | email, password        | no   |
-| GET    | '/me'                       | Get information of this user        | none                   | yes  |
-| POST   | '/authorized_post_request'  | Test POST requests (token required) | none                   | yes  |
-| GET    | '/barbershops/'             | Get information of this barbershop  | none                   | no   |
-|        |                             | and it's locations                  |                        |      |
-| GET    | '/barbershops/:id'          | Get information of this barbershop  | none                   | no   |
-|        |                             | with it's locations and reviews     |                        |      |
-|        |                             | with the relating user              |                        |      |
-| PATCH  | '/barbershops/:id'          | Increment the rate property of      | none                   | no   |
-|        |                             | barbershop model                    |                        |      |
-| POST   | '/barbershops/addbarbershop | Create a new barbershop and a new   | title, haircut,        | yes  |
-|        |                             | location                            | beardcut, combo,       |      |
-|        |                             |                                     | haircutPrice,          |      |
-|        |                             |                                     | beardcutPrice,         |      |
-|        |                             |                                     | comboPrice, address,   |      |
-|        |                             |                                     | longitude, latitude    |      |
-|        |                             |                                     | website, email,        |      |
-|        |                             |                                     | phoneNum, openingHours |      |
-|        |                             |                                     | description, image     |      |
-| POST   | '/barbershops/:id/review'   | Create a new review                 | time, content, userId, | yes  |
-|        |                             |                                     | locationId             |      |
-| GET    | '/map/'                     | Get information of all the          | none                   | no   |
-|        |                             | barbershops and include their       |                        |      |
-|        |                             | locations                           |                        |      |
+| Method | Path      | Purpose                           | required parameters | auth |
+| ------ | --------- | --------------------------------- | ------------------- | ---- |
+| GET    | '/'       | Test if your server is running    | none                | no   |
+| POST   | '/echo'   | Test POST requests                | none                | no   |
+| POST   | '/signup' | Create a new user and get a token | email,              | no   |
 
 ## Technologies Used
 
