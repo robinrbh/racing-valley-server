@@ -1,4 +1,4 @@
-# 🏎️Captain Barber 🏎️
+# 🏎️ Racing Valley 🏎️
 
 Racing Valley is a portfolio project where you can rent racecars and compare reviews of Vendors that rent out those racecars. As a Vendor you can also add new cars that you rent out, so you can earn more income with your own cars.
 
