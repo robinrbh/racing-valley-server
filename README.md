@@ -1,4 +1,4 @@
-# 🏎️ Racing Valley 🏎️
+# 🏎️ Racing Valley - backend 🏎️
 
 Racing Valley is a portfolio project where you can rent racecars and compare reviews of Vendors that rent out those racecars. As a Vendor you can also add new cars that you rent out, so you can earn more income with your own cars.
 
@@ -118,8 +118,6 @@ In this project I try to implement solid version control:
 ## Sample requests with httpie
 
 To demo making request to this server, bash commands are included that make requests using `httpie`
-
-They can found in [./sampleRequests/httpie.md](./sampleRequests/httpie.md)
 
 ## SETUP Getting started instructions
 
