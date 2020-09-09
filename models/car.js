@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
 			description: { type: DataTypes.TEXT },
 			gearbox: { type: DataTypes.STRING },
 			imageUrl: { type: DataTypes.STRING, allowNull: false },
+			isAvailable: {
+				type: DataTypes.BOOLEAN,
+				defaultValue: true,
+			},
 		},
 		{
 			sequelize,

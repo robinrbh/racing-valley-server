@@ -8,7 +8,7 @@ module.exports = {
 				primaryKey: true,
 				type: Sequelize.INTEGER,
 			},
-			businessName: {
+			name: {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
@@ -16,6 +16,9 @@ module.exports = {
 				type: Sequelize.STRING,
 				unique: true,
 				allowNull: false,
+			},
+			description: {
+				type: Sequelize.TEXT,
 			},
 			password: {
 				type: Sequelize.STRING,

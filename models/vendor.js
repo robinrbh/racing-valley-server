@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
 	}
 	vendor.init(
 		{
-			businessName: {
+			name: {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
@@ -18,6 +18,9 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.STRING,
 				unique: true,
 				allowNull: false,
+			},
+			description: {
+				type: DataTypes.TEXT,
 			},
 			password: {
 				type: DataTypes.STRING,

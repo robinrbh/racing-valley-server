@@ -9,11 +9,7 @@ module.exports = (sequelize, DataTypes) => {
 	}
 	racer.init(
 		{
-			firstName: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
-			lastName: {
+			name: {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},

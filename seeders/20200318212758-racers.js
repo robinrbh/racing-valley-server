@@ -18,8 +18,7 @@ module.exports = {
 			"racers",
 			[
 				{
-					firstName: "Max",
-					lastName: "Verstappen",
+					name: "Max",
 					email: "max@max.com",
 					password: bcrypt.hashSync("max", SALT_ROUNDS),
 					imageUrl:
@@ -28,8 +27,7 @@ module.exports = {
 					updatedAt: new Date(),
 				},
 				{
-					firstName: "Lewis",
-					lastName: "Hamilton",
+					name: "Lewis",
 					email: "lewis@lewis.com",
 					password: bcrypt.hashSync("lewis", SALT_ROUNDS),
 					imageUrl:

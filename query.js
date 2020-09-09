@@ -10,7 +10,6 @@ const findAllCars = async () => {
 		const cars = await Car.findAll({
 			include: [{ model: Vendor }],
 		})
-		console.log(cars)
 	} catch (e) {
 		console.log("error", e.message)
 	}
@@ -21,7 +20,6 @@ const findOneCar = async () => {
 		const car = await Car.findByPk(1, {
 			include: [{ model: Vendor }],
 		})
-		console.log(car)
 	} catch (e) {
 		console.log("error", e.message)
 	}
@@ -32,7 +30,6 @@ const findDetailsVendor = async () => {
 		const vendor = await Vendor.findByPk(1, {
 			include: [Car, Ratings],
 		})
-		console.log(vendor.ratings)
 	} catch (e) {
 		console.log("error", e.message)
 	}
@@ -49,21 +46,13 @@ const findDetailsVendorBookings = async () => {
 			],
 		})
 
-		// console.log(vendor)
-
 		const cars = vendor.cars
-		// console.log("CAAAAAARS", cars)
-
 		const bookings = cars.flatMap((car) => car.bookings)
-		// const tracks = cars.flatMap((track) => track.tracks)
-
-		// console.log(tracks)
 
 		const bookingsWithCar = bookings.map((book) => ({
 			...book,
 			carBrand: cars.find((car) => car.id === book.carId).brand,
 			carModel: cars.find((car) => car.id === book.carId).model,
-			// location: cars.find((track) => track.id === book.trackId).name,
 		}))
 
 		console.log(bookingsWithCar)
@@ -77,7 +66,6 @@ const findRacerDetailsBookings = async () => {
 		const racer = await Racer.findByPk(1, {
 			include: [Booking],
 		})
-		console.log(racer.bookings)
 	} catch (e) {
 		console.log("error", e.message)
 	}
@@ -93,7 +81,7 @@ const findRacerDetailsBookings = async () => {
 // findDetailsVendor()
 
 // !! Find details of one Vendor including Cars and Bookings
-// findDetailsVendorBookings()
+findDetailsVendorBookings()
 
 // !! Find details of one Racer including his bookings
-findRacerDetailsBookings()
+// findRacerDetailsBookings()
