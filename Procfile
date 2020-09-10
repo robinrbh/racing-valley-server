@@ -1,1 +1,1 @@
-web: node dist/main.js
+release: bash post-release.sh
