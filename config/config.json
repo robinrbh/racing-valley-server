@@ -13,6 +13,6 @@
 		"operatorsAliases": "0"
 	},
 	"production": {
-		"use_env_variable": "postgres://zdtyynbf:jQBkC4qTfBAL63mPAjTujdi_ueOj-nnK@balarama.db.elephantsql.com:5432/zdtyynbf"
+		"use_env_variable": "DATABASE_URL"
 	}
 }
