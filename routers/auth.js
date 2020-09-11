@@ -81,7 +81,7 @@ router.post("/signup", async (req, res) => {
 			.send({ message: "Please provide an email, password and a name" })
 	}
 	try {
-		if (isRacer === 1) {
+		if (isRacer === "1") {
 			const newRacer = await Racer.create({
 				email,
 				password: bcrypt.hashSync(password, SALT_ROUNDS),
