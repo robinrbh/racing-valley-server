@@ -30,13 +30,16 @@ router.get("/", async (req, res) => {
 
 router.post("/", vendorAuthMiddleware, async (req, res) => {
 	const { id } = req.vendor
-
-	const vendor = req.vendor
-
 	const { brand, model, bhp, description, gearbox, imageUrl } = req.body
 
-	console.log("req.body", req.body)
-
+	if (!brand || !model || !bhp || !description || !gearbox || !imageUrl) {
+		return res
+			.status(400)
+			.send({
+				message:
+					"Please provide a brand, a model, bhp, a description, a gearbox, an imageUrl",
+			})
+	}
 	try {
 		const newCar = await Car.create({
 			brand,
