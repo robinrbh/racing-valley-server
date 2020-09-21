@@ -9,7 +9,6 @@ Racing Valley is a portfolio project where you can rent racecars and compare rev
 - **[Database Diagram](#database-diagram)**
 - **[Project-Board](#project-board)**
 - **[Frontend](#frontend)**
-- **[Endpoints](#endpoints)**
 - **[Technologies Used](#technologies-used)**
 - **[Git Version Control](#git-version-control)**
 - **[Sample requests with httpie](#sample-requests-with-httpie)**
@@ -61,14 +60,6 @@ Go to [project board](https://github.com/robinrbh/racing-valley/projects/1)
 ## Frontend
 
 [Click here for more details](https://github.com/robinrbh/racing-valley)
-
-## Endpoints
-
-| Method | Path      | Purpose                           | required parameters | auth |
-| ------ | --------- | --------------------------------- | ------------------- | ---- |
-| GET    | '/'       | Test if your server is running    | none                | no   |
-| POST   | '/echo'   | Test POST requests                | none                | no   |
-| POST   | '/signup' | Create a new user and get a token |                     | no   |
 
 ## Technologies Used
 
